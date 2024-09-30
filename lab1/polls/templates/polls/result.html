@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Kết Quả</title>
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}"> <!-- Thêm CSS nếu cần -->
+</head>
+
+<body>
+    <header>
+        <h1>Kết Quả Cuộc Thăm Dò</h1>
+    </header>
+
+    <main>
+        <h2>{{ question.question_text }}</h2>
+
+        <ul>
+            {% for choice in question.choice_set.all %}
+            <li>
+                {{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'polls:detail' question.id %}">Bỏ phiếu lại?</a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cuộc Thăm Dò</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{% extends "admin/base.html" %}
+
+{% load i18n %}
+
+{% block branding %}
+<div id="site-name"><a href="{% url 'admin:index' %}">Polls Administration</a></div>
+{% if user.is_anonymous %}
+{% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block nav-global %}
+<div id="nav-global">
+    <h1>{% block title %}{% endblock %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+{% block content %}
+{% block content_inner %}
+{% endblock %}
+{% endblock %}
+{% endblock %}
+
+{% block footer %}
+<div id="footer">
+    <p>{% block footer_text %}{% trans "Django Administration" %}{% endblock %}</p>
+</div>
+{% endblock %}
